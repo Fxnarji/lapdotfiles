@@ -1,0 +1,10 @@
+#!/bin/sh
+# Called by `wl-paste --type text --watch clip-store` for every text copy
+# (started by the Quickshell clipboard panel). Stores it in cliphist, keeping
+# the newest 200 entries and skipping anything over 100 KiB.
+# Copies a password manager marks as sensitive are skipped by cliphist itself
+# (wl-paste passes CLIPBOARD_STATE=sensitive through the environment).
+t=$(mktemp) || exit 1
+trap 'rm -f "$t"' EXIT
+cat >"$t"
+[ "$(stat -c %s "$t")" -le 102400 ] && cliphist -max-items 200 store <"$t"

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Set a wallpaper and recolor the accent from it.
+# Usage: wallpaper [image]    (no argument: open the switcher)
+set -euo pipefail
+
+current="$HOME/.cache/current-wallpaper"
+img="${1:-}"
+
+if [[ -z "$img" ]]; then
+    # No image given: open the Quickshell switcher, which calls back here.
+    exec qs ipc call wallpaper open
+fi
+
+img=$(realpath "$img")
+pgrep -x awww-daemon >/dev/null || { awww-daemon >/dev/null 2>&1 & sleep 0.5; }
+awww img "$img" --transition-type fade --transition-duration 1
+ln -sf "$img" "$current"
+matugen image "$img" -t scheme-fidelity -m dark --prefer saturation -q

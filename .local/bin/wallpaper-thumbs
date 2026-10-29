@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+"""Square previews for the wallpaper switcher.
+
+For every image in ~/Pictures/wallpapers, cut the middle square, downscale it
+to 1024px if it's bigger, and save it to ~/Pictures/.wallpapercache/<name>.jpg.
+Previews that are newer than their wallpaper are reused; previews of deleted
+wallpapers are removed.
+
+Prints one "wallpaper<TAB>preview" line per wallpaper, sorted by name, as soon
+as each preview is ready, so the switcher can show them while the rest are cut.
+"""
+import os
+import sys
+from pathlib import Path
+
+from PIL import Image, ImageOps
+
+WALLPAPERS = Path.home() / "Pictures" / "wallpapers"
+CACHE = WALLPAPERS.parent / ".wallpapercache"
+SIZE = 1024
+EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp"}
+
+
+def preview(src: Path, dst: Path) -> None:
+    with Image.open(src) as im:
+        im = ImageOps.exif_transpose(im).convert("RGB")
+        side = min(im.size)
+        left = (im.width - side) // 2
+        top = (im.height - side) // 2
+        im = im.crop((left, top, left + side, top + side))
+        if side > SIZE:
+            im = im.resize((SIZE, SIZE), Image.Resampling.LANCZOS)
+        tmp = dst.with_suffix(".tmp")
+        im.save(tmp, "JPEG", quality=90)
+        os.replace(tmp, dst)
+
+
+def main() -> None:
+    CACHE.mkdir(exist_ok=True)
+    images = sorted(
+        (p for p in WALLPAPERS.iterdir() if p.is_file() and p.suffix.lower() in EXTENSIONS),
+        key=lambda p: p.name.lower(),
+    )
+
+    wanted = set()
+    for src in images:
+        dst = CACHE / (src.name + ".jpg")
+        wanted.add(dst.name)
+        try:
+            if not dst.exists() or dst.stat().st_mtime < src.stat().st_mtime:
+                preview(src, dst)
+        except Exception as e:  # unreadable image: skip it, keep going
+            print(f"wallpaper-thumbs: {src.name}: {e}", file=sys.stderr)
+            continue
+        print(f"{src}\t{dst}", flush=True)
+
+    for old in CACHE.glob("*.jpg"):
+        if old.name not in wanted:
+            old.unlink()
+
+
+if __name__ == "__main__":
+    main()

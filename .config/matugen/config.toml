@@ -1,0 +1,30 @@
+# Only the accent comes from the wallpaper: the wallpaper's dominant color,
+# pushed to a fixed saturation/lightness so it always glows like the handoff's red.
+# Terminal apps (yazi, eza, fastfetch, tclock) use ANSI red, which kitty maps to the accent.
+[config]
+
+[templates.hyprland]
+input_path  = "~/.config/matugen/templates/hypr-accent.lua"
+output_path = "~/.config/hypr/modules/accent.lua"
+post_hook   = "hyprctl reload >/dev/null"
+
+[templates.hyprlock]
+input_path  = "~/.config/matugen/templates/hyprlock-accent.conf"
+output_path = "~/.config/hypr/hyprlock-accent.conf"
+
+[templates.kitty]
+input_path  = "~/.config/matugen/templates/kitty-accent.conf"
+output_path = "~/.config/kitty/accent.conf"
+post_hook   = "pkill -SIGUSR1 -x kitty"
+
+[templates.btop]
+input_path  = "~/.config/matugen/templates/btop.theme"
+output_path = "~/.config/btop/themes/mono-accent.theme"
+
+[templates.nvim]
+input_path  = "~/.config/matugen/templates/nvim-accent.lua"
+output_path = "~/.config/nvim/lua/accent.lua"
+
+[templates.quickshell]
+input_path  = "~/.config/matugen/templates/quickshell-colors.json"
+output_path = "~/.config/quickshell/colors.json"

@@ -1,0 +1,1 @@
+{ "accent": "{{colors.source_color.default.hex | set_saturation: 85.0 | set_lightness: 65.0}}" }

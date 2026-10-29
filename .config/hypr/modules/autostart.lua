@@ -1,0 +1,12 @@
+hl.env("XCURSOR_SIZE", "24")
+hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("GTK_THEME", "Adwaita:dark")
+hl.env("QT_QPA_PLATFORMTHEME", "gtk3")
+
+hl.on("hyprland.start", function()
+    hl.exec_cmd("awww-daemon")
+    hl.exec_cmd("sleep 0.5 && awww img ~/.cache/current-wallpaper")
+    hl.exec_cmd("qs")
+    hl.exec_cmd("hypridle")
+    hl.exec_cmd("systemctl --user start hyprpolkitagent")
+end)

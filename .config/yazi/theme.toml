@@ -1,0 +1,69 @@
+# Mono + accent. "red" is the wallpaper accent (kitty's ANSI red).
+[mgr]
+cwd             = { fg = "red" }
+find_keyword    = { fg = "red", bold = true }
+find_position   = { fg = "#8a8a8a" }
+marker_selected = { fg = "red", bg = "red" }
+marker_copied   = { fg = "#bdbdbd", bg = "#bdbdbd" }
+marker_cut      = { fg = "#5c5c5c", bg = "#5c5c5c" }
+count_selected  = { fg = "#111111", bg = "red" }
+border_symbol   = "│"
+border_style    = { fg = "#262626" }
+
+[indicator]
+parent  = { fg = "#efefef", bg = "#262626" }
+current = { fg = "#111111", bg = "red", bold = true }
+preview = { underline = false }
+padding = { open = "", close = "" }
+
+[tabs]
+active   = { fg = "#efefef", bg = "#262626", bold = true }
+inactive = { fg = "#8a8a8a" }
+
+[mode]
+normal_main = { fg = "#111111", bg = "red", bold = true }
+normal_alt  = { fg = "#efefef", bg = "#262626" }
+select_main = { fg = "#111111", bg = "#efefef", bold = true }
+select_alt  = { fg = "#efefef", bg = "#262626" }
+unset_main  = { fg = "#111111", bg = "#bdbdbd", bold = true }
+unset_alt   = { fg = "#efefef", bg = "#262626" }
+
+[status]
+perm_type  = { fg = "#8a8a8a" }
+perm_read  = { fg = "#8a8a8a" }
+perm_write = { fg = "#8a8a8a" }
+perm_exec  = { fg = "#8a8a8a" }
+perm_sep   = { fg = "#5c5c5c" }
+progress_label  = { fg = "#efefef", bold = true }
+progress_normal = { fg = "red", bg = "#262626" }
+progress_error  = { fg = "red", bg = "#262626" }
+
+[filetype]
+rules = [
+	{ url = "*/", fg = "#efefef", bold = true },
+	{ url = "*",  is = "exec", fg = "red" },
+	{ url = "*",  fg = "#bdbdbd" },
+]
+
+[icon]
+# Folder icons white like the names (named folders keep their special icon).
+prepend_dirs = [
+	{ name = ".config", text = "", fg = "#efefef" },
+	{ name = ".git", text = "", fg = "#efefef" },
+	{ name = ".github", text = "", fg = "#efefef" },
+	{ name = ".npm", text = "", fg = "#efefef" },
+	{ name = "Desktop", text = "", fg = "#efefef" },
+	{ name = "Development", text = "", fg = "#efefef" },
+	{ name = "Documents", text = "", fg = "#efefef" },
+	{ name = "Downloads", text = "", fg = "#efefef" },
+	{ name = "Library", text = "", fg = "#efefef" },
+	{ name = "Movies", text = "", fg = "#efefef" },
+	{ name = "Music", text = "", fg = "#efefef" },
+	{ name = "Pictures", text = "", fg = "#efefef" },
+	{ name = "Public", text = "", fg = "#efefef" },
+	{ name = "Videos", text = "", fg = "#efefef" },
+]
+prepend_conds = [
+	{ if = "dir & hovered", text = "", fg = "#111111" },
+	{ if = "dir", text = "", fg = "#efefef" },
+]

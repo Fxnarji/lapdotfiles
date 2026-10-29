@@ -1,0 +1,11 @@
+[general]
+framerate = 60
+bar_width = 2
+bar_spacing = 1
+
+[color]
+; Mono bars, dark at the base, white at the peaks.
+gradient = 1
+gradient_count = 2
+gradient_color_1 = '#5c5c5c'
+gradient_color_2 = '#efefef'

@@ -1,0 +1,11 @@
+#!/bin/sh
+# Records every text copy into cliphist (via clip-store). Started by the
+# Quickshell clipboard panel; replaces a watcher left over from a previous
+# shell instance so copies aren't stored twice.
+pidfile="${XDG_RUNTIME_DIR:-/tmp}/clip-watch.pid"
+if [ -f "$pidfile" ]; then
+    old=$(cat "$pidfile")
+    [ -n "$old" ] && [ "$(cat "/proc/$old/comm" 2>/dev/null)" = wl-paste ] && kill "$old"
+fi
+echo $$ >"$pidfile"
+exec wl-paste --type text --watch "$HOME/.local/bin/clip-store"

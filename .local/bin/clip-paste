@@ -1,0 +1,15 @@
+#!/bin/sh
+# Paste into the focused window: clip-paste [cliphist-id]
+# With an id, first puts that history entry on the clipboard. Then sends
+# Ctrl+V (Ctrl+Shift+V in terminals) once the clipboard panel has let go of
+# the keyboard.
+if [ -n "$1" ]; then
+    cliphist decode "$1" | wl-copy || exit 1
+fi
+sleep 0.15
+case "$(hyprctl activewindow -j | jq -r '.class // empty')" in
+    kitty|foot|footclient|Alacritty|com.mitchellh.ghostty|org.wezfurlong.wezterm)
+        mods="CTRL SHIFT" ;;
+    *)  mods="CTRL" ;;
+esac
+hyprctl dispatch "hl.dsp.send_shortcut({ mods = \"$mods\", key = \"V\" })" >/dev/null
