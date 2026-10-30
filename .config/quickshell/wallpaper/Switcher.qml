@@ -226,25 +226,7 @@ Scope {
             opacity: root.items.length && root.spread > 0.9 ? 1 : 0
             Behavior on opacity { Anim { duration: Theme.normal } }
 
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: Math.min(implicitWidth, win.card * 1.6)
-                elide: Text.ElideMiddle
-                text: (root.items[root.current]?.src ?? "").split("/").pop().replace(/\.[^.]+$/, "")
-                font.family: Theme.font
-                font.pixelSize: 15
-                font.weight: Font.DemiBold
-                color: Theme.text
-            }
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: (root.current + 1) + " / " + root.items.length
-                      + (root.items[root.current]?.src === root.active ? "  ·  current" : "")
-                font.family: Theme.fontMono
-                font.pixelSize: 11
-                color: Theme.dim
-            }
-        }
+       }
 
         Text {
             visible: root.items.length === 0 && !thumbs.running
