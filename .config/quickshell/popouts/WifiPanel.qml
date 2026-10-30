@@ -98,6 +98,15 @@ PopoutPanel {
                 Detail { glyph: ""; text: Wifi.speed(Wifi.down) }
                 Detail { glyph: ""; text: Wifi.speed(Wifi.up) }
             }
+
+            Repeater {
+                model: Vpn.tunnels
+                Detail {
+                    required property var modelData
+                    glyph: modelData.tailscale ? "" : ""
+                    text: modelData.ip + "  " + modelData.iface
+                }
+            }
         }
     }
 

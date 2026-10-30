@@ -66,6 +66,8 @@ Pill {
         reserve: ""
         WifiIcon {
             connected: root.network !== null
+            tailscale: Vpn.tailscale
+            vpn: Vpn.other
             strength: Math.round((root.network?.signalStrength ?? 0) * ((root.network?.signalStrength ?? 0) <= 1 ? 100 : 1))
         }
         onClicked: Panels.toggle("wifi")
