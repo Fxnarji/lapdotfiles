@@ -93,7 +93,7 @@ Scope {
                     Text {
                         text: "Notifications"
                         font.family: Theme.font
-                        font.pixelSize: 15
+                        font.pixelSize: Theme.fontSizeLg
                         font.weight: Font.Bold
                         color: Theme.text
                     }
@@ -102,7 +102,7 @@ Scope {
                         text: Notifs.count
                         visible: Notifs.count > 0
                         font.family: Theme.fontMono
-                        font.pixelSize: 12
+                        font.pixelSize: Theme.fontSizeSm
                         color: Theme.faint
                     }
                 }
@@ -152,14 +152,14 @@ Scope {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: Notifs.dnd ? "\uf1f6" : "\uf0f3"
                     font.family: Theme.fontMono
-                    font.pixelSize: 24
+                    font.pixelSize: Theme.fontSize3xl
                     color: Theme.faint
                 }
                 Text {
                     anchors.horizontalCenter: parent.horizontalCenter
                     text: Notifs.dnd ? "Do not disturb is on" : "All caught up"
                     font.family: Theme.font
-                    font.pixelSize: 13
+                    font.pixelSize: Theme.fontSize
                     color: Theme.faint
                 }
             }

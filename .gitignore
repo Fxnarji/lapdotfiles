@@ -25,3 +25,8 @@ __pycache__/
 .config/btop/themes/mono-accent.theme
 .config/nvim/lua/accent.lua
 .config/quickshell/colors.json
+
+# calendar backend build output (quickshell/calendar/backend/build.sh)
+.config/quickshell/calendar/backend/.venv/
+.config/quickshell/calendar/backend/build/
+.config/quickshell/calendar/backend/dist/

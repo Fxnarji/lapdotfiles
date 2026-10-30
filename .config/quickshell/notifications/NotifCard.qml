@@ -74,14 +74,14 @@ Rectangle {
                     id: meta
                     text: [root.notif?.appName, Notifs.ago(root.notif)].filter(s => s).join("  ·  ")
                     font.family: Theme.fontMono
-                    font.pixelSize: 11
+                    font.pixelSize: Theme.fontSizeXs
                     color: root.critical ? Theme.accent : Theme.faint
                 }
                 Text {
                     anchors.right: parent.right
                     text: "×"
                     font.family: Theme.font
-                    font.pixelSize: 16
+                    font.pixelSize: Theme.fontSizeXl
                     anchors.verticalCenter: meta.verticalCenter
                     color: closeArea.containsMouse ? Theme.text : Theme.faint
                     opacity: root.hovered ? 1 : 0
@@ -100,7 +100,7 @@ Rectangle {
                 text: root.notif?.summary ?? ""
                 elide: Text.ElideRight
                 font.family: Theme.font
-                font.pixelSize: 13
+                font.pixelSize: Theme.fontSize
                 font.weight: Font.DemiBold
                 color: Theme.text
             }
@@ -114,7 +114,7 @@ Rectangle {
                 maximumLineCount: 4
                 elide: Text.ElideRight
                 font.family: Theme.font
-                font.pixelSize: 12
+                font.pixelSize: Theme.fontSizeSm
                 lineHeight: 1.15
                 color: Theme.dim
             }
@@ -137,7 +137,7 @@ Rectangle {
                             anchors.centerIn: parent
                             text: modelData.text
                             font.family: Theme.font
-                            font.pixelSize: 12
+                            font.pixelSize: Theme.fontSizeSm
                             font.weight: Font.Medium
                             color: Theme.text
                         }

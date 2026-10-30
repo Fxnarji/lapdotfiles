@@ -62,7 +62,7 @@ PopoutPanel {
                     text: root.current?.name ?? ""
                     elide: Text.ElideRight
                     font.family: Theme.font
-                    font.pixelSize: 15
+                    font.pixelSize: Theme.fontSizeLg
                     font.weight: Font.DemiBold
                     color: Theme.text
                 }
@@ -78,7 +78,7 @@ PopoutPanel {
                         visible: !cardHover.hovered
                         text: ""
                         font.family: Theme.fontMono
-                        font.pixelSize: 12
+                        font.pixelSize: Theme.fontSizeSm
                         color: Theme.accent
                     }
                     PanelButton {
@@ -120,7 +120,7 @@ PopoutPanel {
         verticalAlignment: Text.AlignVCenter
         text: "Wi-Fi is off"
         font.family: Theme.font
-        font.pixelSize: 13
+        font.pixelSize: Theme.fontSize
         color: Theme.faint
     }
 
@@ -133,13 +133,13 @@ PopoutPanel {
             anchors.verticalCenter: parent.verticalCenter
             text: parent.glyph
             font.family: Theme.fontMono
-            font.pixelSize: 11
+            font.pixelSize: Theme.fontSizeXs
             color: Theme.accent
         }
         Text {
             id: value
             font.family: Theme.fontMono
-            font.pixelSize: 12
+            font.pixelSize: Theme.fontSizeSm
             color: Theme.text
         }
     }

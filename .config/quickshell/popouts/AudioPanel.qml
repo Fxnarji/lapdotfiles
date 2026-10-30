@@ -62,7 +62,7 @@ PopoutPanel {
                 anchors.centerIn: parent
                 text: root.sink?.audio?.muted ? "" : ""
                 font.family: Theme.fontMono
-                font.pixelSize: 13
+                font.pixelSize: Theme.fontSize
                 color: root.sink?.audio?.muted ? Theme.accent : Theme.text
             }
             MouseArea {
@@ -97,11 +97,11 @@ PopoutPanel {
                     text: root.label(root.sink)
                     elide: Text.ElideRight
                     font.family: Theme.font
-                    font.pixelSize: 15
+                    font.pixelSize: Theme.fontSizeLg
                     font.weight: Font.DemiBold
                     color: Theme.text
                 }
-                Glyph { id: outCheck; anchors.left: undefined; anchors.right: parent.right; text: ""; size: 12; color: Theme.accent }
+                Glyph { id: outCheck; anchors.left: undefined; anchors.right: parent.right; text: ""; size: Theme.fontSizeSm; color: Theme.accent }
             }
 
             VolumeLine {
@@ -154,10 +154,10 @@ PopoutPanel {
                         text: root.label(root.source)
                         elide: Text.ElideRight
                         font.family: Theme.font
-                        font.pixelSize: 14
+                        font.pixelSize: Theme.fontSizeMd
                         color: Theme.text
                     }
-                    Glyph { id: micCheck; anchors.left: undefined; anchors.right: parent.right; text: ""; size: 12; color: Theme.accent }
+                    Glyph { id: micCheck; anchors.left: undefined; anchors.right: parent.right; text: ""; size: Theme.fontSizeSm; color: Theme.accent }
                 }
                 VolumeLine { node: root.source }
             }
@@ -201,7 +201,7 @@ PopoutPanel {
                         text: root.appName(app.modelData)
                         elide: Text.ElideRight
                         font.family: Theme.font
-                        font.pixelSize: 13
+                        font.pixelSize: Theme.fontSize
                         color: app.muted ? Theme.dim : Theme.text
                     }
                     Text {
@@ -211,7 +211,7 @@ PopoutPanel {
                         horizontalAlignment: Text.AlignRight
                         text: root.pct(app.modelData)
                         font.family: Theme.fontMono
-                        font.pixelSize: 12
+                        font.pixelSize: Theme.fontSizeSm
                         color: app.muted ? Theme.faint : Theme.dim
                     }
                     // Click the name to mute / unmute this app.
@@ -240,14 +240,14 @@ PopoutPanel {
             verticalAlignment: Text.AlignVCenter
             text: "Nothing playing"
             font.family: Theme.font
-            font.pixelSize: 12
+            font.pixelSize: Theme.fontSizeSm
             color: Theme.faint
         }
     }
 
     // 16px icon column, vertically centred in its row.
     component Glyph: Text {
-        property int size: 14
+        property int size: Theme.fontSizeMd
         anchors { left: parent.left; verticalCenter: parent.verticalCenter }
         width: 16
         horizontalAlignment: Text.AlignHCenter
@@ -263,7 +263,7 @@ PopoutPanel {
         width: parent.width
         height: 16
 
-        Glyph { id: volIcon; visible: line.glyph !== ""; text: line.glyph; size: 13; color: Theme.dim }
+        Glyph { id: volIcon; visible: line.glyph !== ""; text: line.glyph; size: Theme.fontSize; color: Theme.dim }
         Slider {
             anchors { left: parent.left; leftMargin: 28; right: volPct.left; rightMargin: 12; verticalCenter: parent.verticalCenter }
             value: line.node?.audio?.volume ?? 0
@@ -277,7 +277,7 @@ PopoutPanel {
             horizontalAlignment: Text.AlignRight
             text: root.pct(line.node)
             font.family: Theme.fontMono
-            font.pixelSize: 12
+            font.pixelSize: Theme.fontSizeSm
             color: Theme.dim
         }
     }

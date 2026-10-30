@@ -18,7 +18,7 @@ Item {
         anchors { left: parent.left; leftMargin: 6; verticalCenter: parent.verticalCenter; verticalCenterOffset: 1 }
         text: root.text
         font.family: Theme.fontMono
-        font.pixelSize: 11
+        font.pixelSize: Theme.fontSizeXs
         font.weight: Font.Medium
         font.letterSpacing: 0.66
         font.capitalization: Font.AllUppercase
@@ -38,7 +38,7 @@ Item {
         anchors { right: parent.right; rightMargin: 6; verticalCenter: label.verticalCenter }
         text: ""
         font.family: Theme.fontMono
-        font.pixelSize: 11
+        font.pixelSize: Theme.fontSizeXs
         color: root.scanning ? Theme.dim : Theme.faint
         RotationAnimation on rotation {
             running: root.scanning

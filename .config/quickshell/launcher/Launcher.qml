@@ -172,7 +172,7 @@ Scope {
                     id: input
                     anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter; leftMargin: 12; rightMargin: 12 }
                     font.family: Theme.font
-                    font.pixelSize: 16
+                    font.pixelSize: Theme.fontSizeXl
                     font.bold: true
                     color: Theme.text
                     selectionColor: Qt.alpha(Theme.accent, 0.35)
@@ -252,7 +252,7 @@ Scope {
                         text: row.isCalc ? "= " + row.modelData.calc : row.modelData.app.name
                         elide: Text.ElideRight
                         font.family: row.isCalc ? Theme.fontMono : Theme.font
-                        font.pixelSize: 14
+                        font.pixelSize: Theme.fontSizeMd
                         font.weight: row.isCalc || row.selected ? Font.DemiBold : Font.Medium
                         color: row.isCalc ? Theme.accent : Theme.text
                     }
@@ -262,7 +262,7 @@ Scope {
                         visible: row.isCalc
                         text: "enter to copy"
                         font.family: Theme.fontMono
-                        font.pixelSize: 11
+                        font.pixelSize: Theme.fontSizeXs
                         color: Theme.faint
                     }
 

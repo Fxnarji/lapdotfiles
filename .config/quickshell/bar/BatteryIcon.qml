@@ -126,7 +126,7 @@ Item {
         verticalAlignment: Text.AlignVCenter
         text: Math.round(root.level)
         font.family: Theme.fontMono
-        font.pixelSize: 10
+        font.pixelSize: Theme.fontSize2xs
         font.weight: Font.Bold
     }
 }

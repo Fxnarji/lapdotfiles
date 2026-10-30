@@ -57,7 +57,7 @@ PanelWindow {
                 horizontalAlignment: Text.AlignHCenter
                 text: !win.volume ? "" : win.muted ? "" : ""
                 font.family: Theme.fontMono
-                font.pixelSize: 14
+                font.pixelSize: Theme.fontSizeMd
                 color: win.muted ? Theme.faint : Theme.accent
                 MouseArea {
                     anchors { fill: parent; margins: -6 }
@@ -79,7 +79,7 @@ PanelWindow {
                 horizontalAlignment: Text.AlignRight
                 text: win.muted ? "mute" : Math.round(win.value * 100) + "%"
                 font.family: Theme.fontMono
-                font.pixelSize: 12
+                font.pixelSize: Theme.fontSizeSm
                 color: Theme.dim
             }
         }

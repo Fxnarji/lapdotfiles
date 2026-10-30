@@ -45,7 +45,7 @@ Rectangle {
             anchors.centerIn: parent
             text: root.glyph
             font.family: Theme.fontMono
-            font.pixelSize: 14
+            font.pixelSize: Theme.fontSizeMd
             color: root.glyphColor
         }
     }
@@ -55,7 +55,7 @@ Rectangle {
         text: root.text
         elide: Text.ElideRight
         font.family: root.mono ? Theme.fontMono : Theme.font
-        font.pixelSize: root.mono ? 12 : 14
+        font.pixelSize: root.mono ? Theme.fontSizeSm : Theme.fontSizeMd
         color: root.textColor
     }
 

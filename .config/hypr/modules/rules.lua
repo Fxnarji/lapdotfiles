@@ -50,3 +50,21 @@ hl.layer_rule({
     ignore_alpha = 0,
     animation    = "fade",
 })
+
+-- Calendar send bar: same full-screen blur and fade as the launcher.
+hl.layer_rule({
+    name         = "blur-qs-calendar",
+    match        = { namespace = "^qs-calendar$" },
+    blur         = true,
+    ignore_alpha = 0,
+    animation    = "fade",
+})
+
+-- Calendar view: blurs what's behind it and fades in/out (the bar stays above).
+hl.layer_rule({
+    name         = "blur-qs-calview",
+    match        = { namespace = "^qs-calview$" },
+    blur         = true,
+    ignore_alpha = 0,
+    animation    = "fade",
+})

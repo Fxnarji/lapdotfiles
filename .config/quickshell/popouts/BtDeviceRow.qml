@@ -51,7 +51,7 @@ PanelRow {
         text: root.device.pairing ? "pairing…"
             : root.device.state === BluetoothDeviceState.Disconnecting ? "disconnecting…" : "connecting…"
         font.family: Theme.fontMono
-        font.pixelSize: 11
+        font.pixelSize: Theme.fontSizeXs
         color: Theme.dim
     }
 
@@ -61,7 +61,7 @@ PanelRow {
         anchors.verticalCenter: parent.verticalCenter
         text: Math.round(root.battery) + "%"
         font.family: Theme.fontMono
-        font.pixelSize: 12
+        font.pixelSize: Theme.fontSizeSm
         color: root.battery < 30 ? Theme.accent : Theme.dim
     }
     PanelButton {

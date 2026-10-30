@@ -29,8 +29,20 @@ Singleton {
     // Fonts
     readonly property string font:     "Geist"
     readonly property string fontMono: "GeistMono Nerd Font"
+    // Font sizes (px), smallest to largest. fontSize is body text.
+    readonly property int fontSize4xs:  8
+    readonly property int fontSize3xs:  9
+    readonly property int fontSize2xs:  10
+    readonly property int fontSizeXs:   11
+    readonly property int fontSizeSm:   12
     readonly property int fontSize:     13
-    readonly property int fontSizeMono: 12
+    readonly property int fontSizeMd:   14
+    readonly property int fontSizeLg:   15
+    readonly property int fontSizeXl:   16
+    readonly property int fontSize2xl:  22
+    readonly property int fontSize3xl:  24
+    readonly property int fontSize4xl:  26
+    readonly property int fontSizeMono: fontSizeSm   // default for mono text
 
     // Sizes
     readonly property int barHeight: 40

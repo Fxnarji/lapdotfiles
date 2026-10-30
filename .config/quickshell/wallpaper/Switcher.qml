@@ -251,7 +251,7 @@ Scope {
             anchors.centerIn: parent
             text: "No wallpapers in ~/Pictures/wallpapers"
             font.family: Theme.font
-            font.pixelSize: 14
+            font.pixelSize: Theme.fontSizeMd
             color: Theme.dim
         }
     }

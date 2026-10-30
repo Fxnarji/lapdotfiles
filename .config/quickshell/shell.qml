@@ -3,6 +3,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Hyprland
 import "bar"
+import "calendar"
 import "clipboard"
 import "launcher"
 import "notifications"
@@ -31,4 +32,6 @@ ShellRoot {
     OsdWindow {}
     Switcher {}
     Clipboard {}
+    CalSend {}
+    CalView {}
 }

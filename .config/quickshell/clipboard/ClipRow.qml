@@ -58,7 +58,7 @@ Rectangle {
             text: root.pinned ? "\uf08d" : root.selected ? "\uf0c5"
                 : root.kind === "url" ? "\uf0c1" : root.kind === "code" ? "\uf121" : "\uf0f6"
             font.family: Theme.fontMono
-            font.pixelSize: root.pinned ? 12 : 14
+            font.pixelSize: root.pinned ? Theme.fontSizeSm : Theme.fontSizeMd
             color: root.pinned || root.selected ? Theme.accent : Theme.dim
         }
     }
@@ -78,7 +78,7 @@ Rectangle {
         }
         elide: Text.ElideRight
         font.family: mono ? Theme.fontMono : Theme.font
-        font.pixelSize: mono ? 12 : 13
+        font.pixelSize: mono ? Theme.fontSizeSm : Theme.fontSize
         color: Theme.text
     }
 
@@ -105,7 +105,7 @@ Rectangle {
             anchors.centerIn: parent
             text: button.glyph
             font.family: Theme.fontMono
-            font.pixelSize: 13
+            font.pixelSize: Theme.fontSize
             color: button.active ? Theme.accent : area.containsMouse ? Theme.text : Theme.dim
         }
         MouseArea {

@@ -15,7 +15,7 @@ Item {
         anchors { left: parent.left; leftMargin: 6; verticalCenter: parent.verticalCenter }
         text: root.title
         font.family: Theme.font
-        font.pixelSize: 15
+        font.pixelSize: Theme.fontSizeLg
         font.weight: Font.DemiBold
         color: Theme.text
     }

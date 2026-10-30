@@ -124,7 +124,7 @@ PopoutPanel {
         verticalAlignment: Text.AlignVCenter
         text: root.adapter ? "Bluetooth is off" : "No Bluetooth adapter"
         font.family: Theme.font
-        font.pixelSize: 13
+        font.pixelSize: Theme.fontSize
         color: Theme.faint
     }
 

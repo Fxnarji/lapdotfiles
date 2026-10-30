@@ -22,7 +22,7 @@ Rectangle {
         anchors.centerIn: parent
         text: root.text
         font.family: Theme.font
-        font.pixelSize: 12
+        font.pixelSize: Theme.fontSizeSm
         font.weight: Font.Medium
         color: root.primary ? Theme.accentText : Theme.text
     }

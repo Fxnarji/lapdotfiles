@@ -246,7 +246,7 @@ Scope {
                         horizontalAlignment: Text.AlignHCenter
                         text: "\uf002"
                         font.family: Theme.fontMono
-                        font.pixelSize: 12
+                        font.pixelSize: Theme.fontSizeSm
                         color: Theme.faint
                     }
 
@@ -254,7 +254,7 @@ Scope {
                         id: input
                         anchors { left: searchIcon.right; leftMargin: 10; right: clear.left; rightMargin: 10; verticalCenter: parent.verticalCenter }
                         font.family: Theme.font
-                        font.pixelSize: 13
+                        font.pixelSize: Theme.fontSize
                         color: Theme.text
                         selectionColor: Qt.alpha(Theme.accent, 0.35)
                         clip: true
@@ -294,7 +294,7 @@ Scope {
                             anchors.centerIn: parent
                             text: root.clearArmed ? "clear?" : "\uf1f8"
                             font.family: Theme.fontMono
-                            font.pixelSize: root.clearArmed ? 11 : 13
+                            font.pixelSize: root.clearArmed ? Theme.fontSizeXs : Theme.fontSize
                             color: root.clearArmed ? Theme.accent : clearArea.containsMouse ? Theme.text : Theme.dim
                         }
                         MouseArea {
@@ -349,7 +349,7 @@ Scope {
                     verticalAlignment: Text.AlignVCenter
                     text: root.query !== "" ? "No matches" : "Nothing copied yet"
                     font.family: Theme.font
-                    font.pixelSize: 12
+                    font.pixelSize: Theme.fontSizeSm
                     color: Theme.faint
                 }
             }

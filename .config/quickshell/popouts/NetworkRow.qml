@@ -66,7 +66,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 text: root.busy ? "connecting…" : root.error
                 font.family: Theme.fontMono
-                font.pixelSize: 11
+                font.pixelSize: Theme.fontSizeXs
                 color: root.error ? Theme.accent : Theme.dim
             }
             PanelButton {
@@ -81,7 +81,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 text: ""
                 font.family: Theme.fontMono
-                font.pixelSize: 11
+                font.pixelSize: Theme.fontSizeXs
                 color: Theme.faint
             }
         }
@@ -108,7 +108,7 @@ Rectangle {
                     echoMode: TextInput.Password
                     passwordCharacter: "•"
                     font.family: Theme.fontMono
-                    font.pixelSize: 13
+                    font.pixelSize: Theme.fontSize
                     font.letterSpacing: 2
                     color: Theme.text
                     selectionColor: Qt.alpha(Theme.accent, 0.35)
