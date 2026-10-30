@@ -10,6 +10,8 @@ if status is-interactive
     alias timer 'tclock timer -d 25m -c Red -M'
     alias clock 'tclock clock -c White'
     alias p python3
+    alias ff fastfetch
+    alias venv 'source .venv/bin/activate.fish'
 
     # kitten ssh copies kitty's terminfo to the host, so the remote shell
     # understands kitty (colours, keys, clear). Only inside kitty.

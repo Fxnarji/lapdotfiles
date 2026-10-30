@@ -20,6 +20,5 @@
         { "type": "memory",   "key": "mem",  "format": "{used} / {total}" },
         { "type": "uptime",   "key": "uptime" },
         "break",
-        { "type": "colors", "symbol": "block" }
     ]
 }
