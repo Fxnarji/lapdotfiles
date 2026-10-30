@@ -55,7 +55,7 @@ Pill {
         reserve: ""
         visible: Brightness.available
         DisplayIcon { level: Brightness.value * 100 }
-        onClicked: Osd.show("brightness")
+        onClicked: Osd.show("brightness", true)
         onScrolled: dir => Brightness.set(Brightness.value + dir * 0.05)
     }
 

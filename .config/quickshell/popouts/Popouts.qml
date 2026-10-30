@@ -48,7 +48,10 @@ Scope {
         // Below the bar: bar margin + bar height + gap.
         readonly property int top: Theme.gap + Theme.barHeight + Theme.gap
 
-        visible: wifi.visible || bluetooth.visible || audio.visible
+        // Map on the open state, not just the panels' opacity: a hidden window's
+        // animations don't tick, so the fade-in would never start and the window
+        // would never reappear. The opacity term keeps it up during the fade-out.
+        visible: Panels.anyPopout || wifi.visible || bluetooth.visible || audio.visible
         screen: Quickshell.screens.find(s => s.name === Hyprland.focusedMonitor?.name)
                 ?? Quickshell.screens[0]
 

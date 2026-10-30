@@ -16,7 +16,8 @@ PanelWindow {
     readonly property bool muted: volume && (audio?.muted ?? false)
     readonly property real value: volume ? (audio?.volume ?? 0) : Brightness.value
 
-    visible: panel.visible
+    // Osd.shown too: a hidden window never runs the fade-in that would show it.
+    visible: Osd.shown || panel.visible
     screen: Quickshell.screens.find(s => s.name === Hyprland.focusedMonitor?.name)
             ?? Quickshell.screens[0]
 
@@ -30,6 +31,12 @@ PanelWindow {
     WlrLayershell.namespace: "qs-osd"
 
     mask: Region { item: panel }
+
+    HyprlandFocusGrab {
+        windows: [win]
+        active: Osd.shown && Osd.grab
+        onCleared: Osd.shown = false
+    }
 
     function set(v) {
         if (!volume) Brightness.set(v);
